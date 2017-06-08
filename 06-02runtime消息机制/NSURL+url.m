@@ -27,13 +27,17 @@
     //直接调用XD_URLWithString，因为刚才通过了交换，就相当于调用URLWithString，就像大话西游上移神换影大法😄
     NSURL *url = [NSURL XD_URLWithString:URLString];
     if (url == nil) {
-       NSString * urlstr = [URLString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
+        //        NSLog(@"该URL为空===%@",URLString) ;
+        NSString * urlstr = [URLString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
         url = [NSURL URLWithString:urlstr];
-        //        NSLog(@"该URL为空") ;
+        NSLog(@"\n\n为空的URL==%@\n\n转换结果===%@\n\n",URLString,urlstr) ;
+        
         return url;
     }else{
+        NSLog(@"原URL没问题===%@",URLString);
         return url;
     }
+
     
 }
 @end
